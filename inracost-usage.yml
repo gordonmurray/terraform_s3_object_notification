@@ -1,0 +1,23 @@
+version: 0.1
+resource_usage:
+  aws_s3_bucket.my_bucket:
+    storage_gb: 0.06  # 60MB = 0.06GB
+    monthly_tier_1_requests: 3000  # 100 PUT requests per day * 30 days
+    monthly_tier_2_requests: 0
+    monthly_select_data_scanned_gb: 0
+    monthly_select_data_returned_gb: 0
+
+  aws_sns_topic.my_topic:
+    monthly_requests: 3000  # 100 messages per day * 30 days
+    request_size_kb: 20  # 20KB per message
+
+  aws_sqs_queue.my_queue:
+    monthly_requests: 9000  # 3000 * 3 (send, receive, delete)
+    request_size_kb: 20  # 20KB per message
+
+  aws_cloudwatch_log_group.my_log_group:
+    monthly_data_ingested_gb: 0.003  # 3MB = 0.003GB
+    storage_gb: 0.003  # Assuming we store all ingested data
+
+  aws_s3_bucket_notification.bucket_notification:
+    monthly_notifications: 3000  # 100 notifications per day * 30 days
