@@ -20,7 +20,7 @@ This project provides a scalable and observable foundation for event-driven arch
 
 ### Diagram
 
-```
+```mermaid
 graph TD
     A[S3 Bucket] -->|Object Created Event| B[SNS Topic]
     B -->|Notification| C[SQS Queue]
